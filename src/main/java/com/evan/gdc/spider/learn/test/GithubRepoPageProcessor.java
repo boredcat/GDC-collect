@@ -1,5 +1,6 @@
 package com.evan.gdc.spider.learn.test;
 
+import com.evan.gdc.spider.webmagic.downloader.MyHttpClientDownloader;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -25,6 +26,6 @@ public class GithubRepoPageProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        Spider.create(new GithubRepoPageProcessor()).addUrl("https://github.com/code4craft").thread(5).run();
+        Spider.create(new GithubRepoPageProcessor()).setDownloader(new MyHttpClientDownloader()).addUrl("https://github.com/code4craft").thread(5).run();
     }
 }
